@@ -1,0 +1,96 @@
+we will folow mvc pattern in this 
+chanel code Algo 
+model- isme hum json form me jo data aata hai uska model rakhte hai
+view-isme hum sare pages ko rakhte hai
+controller- isme hum controller banate hai 
+
+view- pahle hum pages bana lenge home page for show data button
+2-show data page for displaying data
+
+
+
+controller- now in controller section hum controller banayenge getxcontroller
+
+2.1- controller me function denge loadData()
+http module ko import krenge
+2.2- use function me hme http.get (uri.parse('api url)),
+dedena hai hme response milega to ise responce name ke var me store ke lenge kyunki future function hai toh future void lagaenge aur async await lagayenge
+
+
+//kisi bhi controller ke function ko call krne ke liye pahle uska object bana na hoga jis bhi page me aap use call krna chahte ho 
+
+
+
+//now api se response print krane ke baad we have to create a model to display data and save data comming from a apiin model folder
+
+3.1- first create a class with modelname 
+class yourmodelname{
+   //now in this we have to give data   type variables
+   note: jo bhi data api se aa rha hai model me var type bhi same hona cahiye 
+   note:jobhi name aapke api me hai jisme data hai same aapko variable declare krte time dena hai
+
+}
+3.2 - now data class generate krke ctrl+shift+p  and convert json to dart from clipbord it generates all the function we are mainly going to use  factory function details
+
+3.3- now we have to decode the json data coming from a api
+JsonDecode() in controller
+
+//now validation ke baad statuscode ki 
+we are going to create a list with type jobhi model hmne create kiya same usko name denge aur ek
+
+note: koi bhi thing jo aapko lgta hai ki many time use hogi toh uska class create kr do jaise hum brackingbaddatalist model ka krenge  model folder me. filen\ name banake uske andar value pass kr do 
+exmp: class BrakingBadDataList {
+  static List<BreakinBadDataModel> brakingBadCharacterList = [];
+}
+
+
+
+//now class banne ke badd controller file me jana hai wha oe json Decode ka data jis var me assign  hua hai 
+use  BrakingBadDataList me jo var hai brakingBadCharacterList =[] isko assign krna hai map se aur map me joh value aayegi use assign krna hai BreakinBadDataModel ko fir use .toList me convert kr dena hai 
+
+//now ab brakingBadCharacterList =[]  isme api ka sara data hai ab
+hum sare data ko display krayenge
+
+//ek var lenge obs type ka  isLoading ki agar data load ho rha toh circularprogress dikhao 
+
+after loading make its value false in controller and then go to show data page 
+now controller work is compleated
+
+
+//now show data page me we have to design the page to shoe data in nice manner 
+
+and using listview .builder we build the list
+
+
+ye 2 things leta hai itembuikder which takes context and index , second is itemcount 
+
+
+//now jo data api se aarha haai hum use model foldr ke brakingBadCharacterList name ke var me store hai toh item count me useki length jitni hai wo dedenge 
+itemcount:BreakinBadDataModel.brakingBadCharacterList
+aise now itembuilder me ek variable lenge usme index pass kr denge samne BreakingBadDataaList.brakingBadCharacterList['index']
+
+
+//now code ko cleane krne ke liye show data file me ek stl banayenge BreakingBadCharacterTile iseme designing krenge
+
+ab hum BreakingBadCharacterTile jo bhi value hai uska use kreke api me sari cheejo ko asccess kr skte hai 
+
+
+//now hme jab tak data load hoga tab tak circular toh controller call krenge  get.find variable se controller ko aur vo value OBx (()=>here rest code with conditon de ke wrap kr denge )
+
+
+//now we are going to design data in showdata page me BreakingBadCharacterTile hai usme 
+
+//now designing ke liye hum media query ka use krenge 
+Size size = MediaQuery.of(context.size).
+//now size mw hme device ki media query mil gyi
+exmp:
+
+container (
+  width: size.width * 0.9 means screen width ki 90%
+)
+
+
+
+
+ 
+
